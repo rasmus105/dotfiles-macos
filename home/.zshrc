@@ -23,7 +23,7 @@ setopt HIST_VERIFY           # Show command before executing from history
 # DOTFILES_DIR will be set during installation
 # export DOTFILES_DIR="$HOME/.dotfiles"
 
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 export MANPAGER="nvim +Man!" # use neovim for man pages.
 export EDITOR="nvim" # some applications such as Yazi use this variable for determining editor
 export TERM=xterm-256color

@@ -5,11 +5,12 @@ source utils.sh
 install_brew()
 
 # install all homebrew packages (including stow)
-brew bundle
+# brew bundle
 
 # stow configuration files
 stow --restow -d ~/dotfiles -t ~/.config config # stow config/
 stow --restow -d ~/dotfiles -t ~ home # stow home/
+stow --restow -d ~/dotfiles -t ~ local # stow local/
 
 # MacOS configuration stuff
 defaults write com.apple.dock mru-spaces -bool false # avoid MacOS reordering desktops.

@@ -2,7 +2,7 @@ set -eux
 
 source utils.sh
 
-install_brew()
+install_brew
 
 # install all homebrew packages (including stow)
 brew bundle
@@ -19,9 +19,9 @@ defaults write com.apple.dock autohide -bool true # automatically hide dock.
 defaults write com.apple.dock autohide-time-modifier -float 0.30 # increase animation speed of dock appearing
 defaults write com.apple.dock autohide-delay -float 0 # immediately show dock when moving cursor to the bottom.
 
-enable_disk_encryption()
+enable_disk_encryption
 
-remove_app("iMovie")
-remove_app("GarageBand")
+# remove_app "iMovie"
+# remove_app "GarageBand"
 
 killall Dock # MacOS should restart this immediately by itself.

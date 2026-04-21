@@ -5,7 +5,7 @@ source utils.sh
 install_brew()
 
 # install all homebrew packages (including stow)
-# brew bundle
+brew bundle
 
 # stow configuration files
 stow --restow -d ~/dotfiles -t ~/.config config # stow config/

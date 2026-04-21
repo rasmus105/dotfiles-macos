@@ -2,6 +2,7 @@
 shell-integration = zsh
 shell-integration-features = ssh-terminfo,ssh-env
 font-family = Hack Nerd Font
+font-size = 20
 theme = Gruvbox Dark
 mouse-hide-while-typing = true
 
@@ -15,8 +16,6 @@ keybind = alt+r=reload_config
 window-save-state = always
 resize-overlay = never
 macos-titlebar-style = transparent
-
-window-new-tab-position = end
 
 ## Keybinds
 # Unbinding

@@ -13,6 +13,7 @@ vim.pack.add({
 
 	-- Editor improvements
 	{ src = "https://github.com/nvim-mini/mini.surround" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 
 	-- LSP
 	{ src = "https://github.com/neovim/nvim-lspconfig" },

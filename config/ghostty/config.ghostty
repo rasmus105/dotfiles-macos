@@ -1,4 +1,4 @@
-# Basic cmds
+# Basic alts
 shell-integration = zsh
 shell-integration-features = ssh-terminfo,ssh-env
 # font-family = Hack Nerd Font
@@ -8,9 +8,9 @@ mouse-hide-while-typing = true
 # 31.25 MB
 scrollback-limit = 33554432
 
-## General cmds 
+## General alts 
 # Misc
-keybind = cmd+r=reload_config
+keybind = alt+r=reload_config
 
 window-save-state = always
 resize-overlay = never
@@ -24,50 +24,50 @@ keybind = ctrl+enter=unbind
 keybind = ctrl+tab=unbind
 
 # Misc
-keybind = cmd+/=start_search
+keybind = alt+/=start_search
 
-keybind = cmd+q=close_surface
+keybind = alt+q=close_surface
 
-keybind = cmd+t=toggle_quick_terminal
+keybind = alt+t=toggle_quick_terminal
 
-keybind = cmd+o=toggle_tab_overview
+keybind = alt+o=toggle_tab_overview
 
 # Panes
-keybind = cmd+h=goto_split:left
-keybind = cmd+j=goto_split:bottom
-keybind = cmd+k=goto_split:top
-keybind = cmd+l=goto_split:right
+keybind = alt+h=goto_split:left
+keybind = alt+j=goto_split:bottom
+keybind = alt+k=goto_split:top
+keybind = alt+l=goto_split:right
 
-keybind = cmd+v=new_split:right
-keybind = cmd+s=new_split:down
+keybind = alt+v=new_split:right
+keybind = alt+s=new_split:down
 
-keybind = cmd+f=toggle_split_zoom
+keybind = alt+f=toggle_split_zoom
 
-keybind = cmd+equal=equalize_splits
+keybind = alt+equal=equalize_splits
 
 # Tabs
-keybind = cmd+n=new_tab
+keybind = alt+n=new_tab
 
-keybind = cmd+1=goto_tab:1
-keybind = cmd+2=goto_tab:2
-keybind = cmd+3=goto_tab:3
-keybind = cmd+4=goto_tab:4
-keybind = cmd+5=goto_tab:5
-keybind = cmd+6=goto_tab:6
-keybind = cmd+7=goto_tab:7
-keybind = cmd+8=goto_tab:8
-keybind = cmd+9=goto_tab:9
+keybind = alt+1=goto_tab:1
+keybind = alt+2=goto_tab:2
+keybind = alt+3=goto_tab:3
+keybind = alt+4=goto_tab:4
+keybind = alt+5=goto_tab:5
+keybind = alt+6=goto_tab:6
+keybind = alt+7=goto_tab:7
+keybind = alt+8=goto_tab:8
+keybind = alt+9=goto_tab:9
 
-keybind = cmd+]=next_tab
-keybind = cmd+[=previous_tab
+keybind = alt+]=next_tab
+keybind = alt+[=previous_tab
 
 # Scrolling
 # keybind = ctrl+up=scroll_page_up
 # keybind = ctrl+down=scroll_page_down
-keybind = cmd+u=scroll_page_fractional:-0.5
-keybind = cmd+d=scroll_page_fractional:0.5
+keybind = alt+u=scroll_page_fractional:-0.5
+keybind = alt+d=scroll_page_fractional:0.5
 
-# cmd palette
-keybind = cmd+p=toggle_command_palette
+# alt palette
+keybind = alt+p=toggle_command_palette
 
 keybind = ctrl+[=text:\x1b

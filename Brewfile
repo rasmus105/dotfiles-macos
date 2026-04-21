@@ -1,3 +1,5 @@
+tap "jurplel/tap"
+
 brew "antidote"
 brew "bat"
 brew "eza"
@@ -8,7 +10,10 @@ brew "neovim", args: ["HEAD"]
 brew "ripgrep"
 brew "rustup"
 brew "stow"
+brew "tldr"
 brew "tree-sitter"
 brew "yazi"
 brew "zig"
 brew "zoxide"
+
+cask "jurplel/tap/instant-space-switcher"

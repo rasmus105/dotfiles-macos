@@ -2,6 +2,7 @@ tap "jurplel/tap"
 
 brew "antidote"
 brew "bat"
+brew "delta"
 brew "eza"
 brew "fzf"
 brew "gh"

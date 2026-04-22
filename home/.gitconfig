@@ -10,6 +10,14 @@
 
 [core]
     editor = nvim
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    side-by-side = true
+    syntax-theme = gruvbox-dark
 
 [includeIf "gitdir:~/git/work/"]
     path = ~/.gitconfig-personal # (my company)

@@ -20,3 +20,4 @@ brew "zoxide"
 
 cask "jurplel/tap/instant-space-switcher"
 cask "font-hack-nerd-font"
+cask "visual-studio-code"

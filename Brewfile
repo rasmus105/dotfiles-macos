@@ -10,6 +10,7 @@ brew "lazygit"
 brew "neovim", args: ["HEAD"]
 brew "ripgrep"
 brew "rustup"
+brew "scc"
 brew "stow"
 brew "tldr"
 brew "tree-sitter"

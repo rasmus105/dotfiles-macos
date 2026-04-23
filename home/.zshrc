@@ -142,3 +142,8 @@ function y() {
     [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
     rm -f -- "$tmp"
 }
+
+function manl() {
+  local linux_man_root="$HOME/git/public/man-pages"
+  MANPATH="$linux_man_root${MANPATH:+:$MANPATH}" man "$@"
+}

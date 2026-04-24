@@ -34,7 +34,7 @@ export TERM=xterm-256color
 alias grep='grep --color=auto'  # Enable color output for grep
 alias cd='z'  # Use zoxide for quick directory navigation
 alias cat='bat' # better 'cat'.
-alias g='lazygit'
+alias g='lazygit -ucd "$HOME/.config/lazygit"'
 alias n='nvim'
 alias open='setsid xdg-open &>/dev/null'
 

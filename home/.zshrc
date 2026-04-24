@@ -18,6 +18,12 @@ setopt HIST_VERIFY           # Show command before executing from history
 # wmname LG3D  # Needed for Ghidra, Maple, and other Java-based software
 
 # ===============================
+# SSH
+# ===============================
+
+ssh-add ~/.ssh/bitbucket
+
+# ===============================
 # Exports
 # ===============================
 # DOTFILES_DIR will be set during installation

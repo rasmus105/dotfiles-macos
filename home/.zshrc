@@ -29,11 +29,13 @@ ssh-add ~/.ssh/bitbucket
 # DOTFILES_DIR will be set during installation
 # export DOTFILES_DIR="$HOME/.dotfiles"
 
-export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin:$PATH"
+export PATH="/Applications/SEGGER/JLink/JFlash.app/Contents/MacOS/:$PATH"
 export MANPAGER="nvim +Man!" # use neovim for man pages.
 export EDITOR="nvim" # some applications such as Yazi use this variable for determining editor
 export TERM=xterm-256color
-
+export ARM_NONE_EABI_TOOLCHAIN_PATH="/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi"
+export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
 # ===============================
 # Aliases
 # ===============================
@@ -153,3 +155,23 @@ function manl() {
   local linux_man_root="$HOME/git/public/man-pages"
   MANPATH="$linux_man_root${MANPATH:+:$MANPATH}" man "$@"
 }
+
+__set_title() {
+  emulate -L zsh
+
+  local title
+  title="${PWD/#$HOME/~}"
+
+  title="${title//$'\a'/}"
+  title="${title//$'\e'/}"
+
+  printf '\e]2;%s\a' "$title"
+}
+autoload -Uz add-zsh-hook
+
+# Set once when the shell starts.
+__set_title
+
+# Update when changing directories.
+add-zsh-hook chpwd __set_title
+

@@ -17,6 +17,7 @@ brew "tree-sitter"
 brew "yazi"
 brew "zig"
 brew "zoxide"
+brew "hyperfine"
 
 cask "jurplel/tap/instant-space-switcher"
 cask "font-hack-nerd-font"

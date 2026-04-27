@@ -175,3 +175,14 @@ vim.api.nvim_create_autocmd("FileType", {
 		end)
 	end,
 })
+
+vim.api.nvim_create_autocmd({
+	"DirChanged",
+	"BufEnter",
+	"FocusGained",
+}, {
+	callback = function()
+		local title = vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
+		vim.o.titlestring = title:gsub("[%c\027]", "")
+	end,
+})

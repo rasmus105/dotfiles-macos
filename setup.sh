@@ -7,10 +7,13 @@ install_brew
 # install all homebrew packages (including stow)
 brew bundle
 
+SCRIPT_DIR="$(realpath "$(dirname "$0")")"
+
 # stow configuration files
-stow --restow -d ~/dotfiles -t ~/.config config # stow config/ to ~/.config/
-stow --restow -d ~/dotfiles -t ~ home # stow home/ to ~/
-stow --restow -d ~/dotfiles -t ~/.local local # stow local/ to ~/.local/
+mkdir -p "$HOME/.config/" "$HOME/.local"
+stow --restow -d "$SCRIPT_DIR" -t ~/.config config # stow config/ to ~/.config/
+stow --restow -d "$SCRIPT_DIR" -t ~ home # stow home/ to ~/
+stow --restow -d "$SCRIPT_DIR" -t ~/.local local # stow local/ to ~/.local/
 
 # MacOS configuration stuff
 defaults write com.apple.dock mru-spaces -bool false # avoid MacOS reordering desktops.

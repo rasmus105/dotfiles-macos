@@ -11,6 +11,7 @@
 [core]
     editor = nvim
     pager = delta
+	ignoreCase = false
 
 [interactive]
     diffFilter = delta --color-only
@@ -27,3 +28,8 @@
 
 [includeIf "gitdir:~/git/traffitech/"]
     path = ~/.gitconfig-traffitech
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

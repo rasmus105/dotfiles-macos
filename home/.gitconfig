@@ -1,6 +1,9 @@
 [user]
-    name = Rasmus K
+    name = Rasmus Kargo
     email = rasmus105@protonmail.com
+
+[alias]
+    d = !nvim -c 'CodeDiffStandalone'  
 
 [init]
     defaultBranch = main
@@ -28,6 +31,7 @@
 
 [includeIf "gitdir:~/git/traffitech/"]
     path = ~/.gitconfig-traffitech
+
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

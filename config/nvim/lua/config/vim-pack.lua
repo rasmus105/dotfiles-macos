@@ -1,7 +1,10 @@
 vim.pack.add({
 	-- General Utils
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+
+	-- Git stuff
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = "https://github.com/esmuellert/codediff.nvim" },
 
 	-- File
 	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" },

@@ -4,6 +4,7 @@
 
 [alias]
     d = !nvim -c 'CodeDiffStandalone'  
+    difft = -c diff.external=difft diff
 
 [init]
     defaultBranch = main

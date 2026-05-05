@@ -26,16 +26,18 @@ ssh-add ~/.ssh/bitbucket
 # ===============================
 # Exports
 # ===============================
-# DOTFILES_DIR will be set during installation
-# export DOTFILES_DIR="$HOME/.dotfiles"
-
-export PATH="$HOME/.cargo/bin:$HOME/.local/bin:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin:$PATH"
-export PATH="/Applications/SEGGER/JLink/JFlash.app/Contents/MacOS/:$PATH"
 export MANPAGER="nvim +Man!" # use neovim for man pages.
 export EDITOR="nvim" # some applications such as Yazi use this variable for determining editor
 export TERM=xterm-256color
+
+# machine-specific stuff
+export BUN_INSTALL="$HOME/.bun"
 export ARM_NONE_EABI_TOOLCHAIN_PATH="/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi"
 export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
+
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:/Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin:$PATH"
+export PATH="/Applications/SEGGER/JLink/JFlash.app/Contents/MacOS/:$PATH"
+export PATH="$BUN_INSTALL/bin:$PATH"
 # ===============================
 # Aliases
 # ===============================
@@ -44,7 +46,6 @@ alias cd='z'  # Use zoxide for quick directory navigation
 alias cat='bat' # better 'cat'.
 alias g='lazygit -ucd "$HOME/.config/lazygit"'
 alias n='nvim'
-alias open='setsid xdg-open &>/dev/null'
 
 ls() { # better ls command
     command eza "$@" 
@@ -175,3 +176,6 @@ __set_title
 # Update when changing directories.
 add-zsh-hook chpwd __set_title
 
+
+# bun completions
+[ -s "/Users/kargo/.bun/_bun" ] && source "/Users/kargo/.bun/_bun"

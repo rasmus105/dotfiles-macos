@@ -1,4 +1,4 @@
-[ -f "$HOME/.dotfiles_env" ] && source "$HOME/.dotfiles_env"
+source <(fzf --zsh)
 
 # ===============================
 # History Configuration

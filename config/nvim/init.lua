@@ -5,6 +5,7 @@ require("config.vim-pack")
 require("config.colorscheme") -- colorscheme configuration and setup
 require("config.lsp")         -- LSP setup, configuration and keymaps
 require("config.autocmds")    -- Useful autocommands
+require("config.globals")     -- Useful global functions
 
 ---- Iterate over all lua files in lua/plugins and import them ----
 for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath("config") .. "/lua/plugins", [[v:val =~ '\.lua$']])) do

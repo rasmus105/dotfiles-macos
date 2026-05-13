@@ -88,9 +88,9 @@ map("n", "<leader>w", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Tip: Use ]q/[q for moving in quickfix list.
 -- useful in combination with Fzf-lua:
---  1. search for files or regex pattern
---  2. press Ctrl+q
---  3. ]q, [q to go to next/prev in the list.
+-- 1. search for files or regex pattern
+-- 2. press Ctrl+q
+-- 3. ]q, [q to go to next/prev in the list.
 
 -- binds Ctrl + E in insert mode to go the the end of the line, providing consistency with
 -- terminal/shell experience (that is the normal behavior)

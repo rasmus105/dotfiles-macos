@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 require("test-runner").setup({
-    enabled = false, -- disabled by default
+	enabled = false, -- disabled by default
 })
 
 map("n", "<leader>tt", ":TestRunnerToggle<CR>")

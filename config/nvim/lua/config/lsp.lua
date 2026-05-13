@@ -13,16 +13,17 @@ require("mason-lspconfig").setup({
 require("mason-tool-installer").setup({
     ensure_installed = {
         "rust_analyzer", -- Rust language server
-        "clangd",        -- C/C++ language server
-        "lua_ls",        -- Lua language server
-        "zls",           -- Zig language server
-        "tinymist",      -- Typst language server
-        "marksman",      -- Markdown language server
-
-        "clang-format",  -- C/C++ formatter
-        "stylua",        -- Lua formatter
-        "shellcheck",    -- Shell linter
-        "shfmt",         -- Shell formatter
+        "clangd",  -- C/C++ language server
+        "lua_ls",  -- Lua language server
+        "emmylua_ls", -- Another lua language server
+        "zls",     -- Zig language server
+        "tinymist", -- Typst language server
+        "marksman", -- Markdown language server
+        "codelldb", -- Debug adapter for Zig/C/C++/Rust
+        "clang-format", -- C/C++ formatter
+        "stylua",  -- Lua formatter
+        "shellcheck", -- Shell linter
+        "shfmt",   -- Shell formatter
     },
 })
 
@@ -94,27 +95,21 @@ require("blink.cmp").setup({
         --
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-j>"] = { "select_next", "fallback" },
-
         ["<C-l>"] = { "snippet_forward", "fallback" },
         ["<C-h>"] = { "snippet_backward", "fallback" },
-
         ["<C-g>"] = { "accept", "fallback" },
         ["<C-c>"] = { "cancel", "fallback" },
-
         -- unbind keybindings that interfer with other keybindings
         ["<C-e>"] = false,
         ["<C-a>"] = false,
         ["<C-f>"] = false,
         ["<C-b>"] = false,
-
         ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
     },
-
     appearance = {
         use_nvim_cmp_as_default = false,
         nerd_font_variant = "mono",
     },
-
     completion = {
         documentation = {
             auto_show = true,
@@ -124,25 +119,20 @@ require("blink.cmp").setup({
             },
         },
     },
-
     sources = { default = { "lsp" } },
-
     cmdline = {
         enabled = true,
         completion = { menu = { auto_show = false } },
         keymap = {
             ["<C-k>"] = { "select_prev", "fallback" },
             ["<C-j>"] = { "select_next", "fallback" },
-
             ["<C-g>"] = { "accept", "fallback" },
             ["<C-c>"] = { "cancel", "fallback" },
-
             -- unbind keybindings that interfer with other keybindings
             ["<C-e>"] = false,
             ["<C-a>"] = false,
             ["<C-f>"] = false,
             ["<C-b>"] = false,
-
             ["<C-Space>"] = { "show", "fallback" },
         },
     },
@@ -167,6 +157,19 @@ vim.lsp.config("lua_ls", {
             },
             telemetry = {
                 enable = false,
+            },
+        },
+    },
+})
+
+vim.lsp.config("emmylua_ls", {
+    settings = {
+        emmylua = {
+            diagnostics = {
+                globals = {
+                    "vim",
+                    "require",
+                },
             },
         },
     },

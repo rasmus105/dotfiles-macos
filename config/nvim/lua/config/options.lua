@@ -82,7 +82,7 @@ opt.grepprg = "rg --vimgrep" -- use ripgrep instead of standard grep
 -- Split behavior
 opt.splitbelow = true -- Horizontal splits go below
 opt.splitright = true -- Vertical splits go right
-opt.splitkeep = "screen"
+opt.splitkeep = "cursor"
 
 -- Command-line completion
 opt.wildmenu = true

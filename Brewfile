@@ -1,13 +1,16 @@
 tap "jurplel/tap"
 
 brew "antidote"
+brew "ast-grep"
 brew "bat"
+brew "chafa"
 brew "delta"
 brew "eza"
 brew "fd"
 brew "fzf"
 brew "gh"
 brew "hyperfine"
+brew "jstkdng/programs/ueberzugpp"
 brew "lazygit"
 brew "neovim", args: ["HEAD"]
 brew "ripgrep"

@@ -29,7 +29,7 @@ require("codediff").setup({
 })
 
 -- When codediff is opened in a standalone session, quit neovim after closing the diff.
-vim.api.nvim_create_user_command("CodeDiffStandalone", function()
+vim.api.nvim_create_user_command("CodeDiffStandalone", function(opts)
 	local group = vim.api.nvim_create_augroup("CodeDiffStandalone", { clear = true })
 	vim.g.codediff_standalone = true
 
@@ -45,5 +45,5 @@ vim.api.nvim_create_user_command("CodeDiffStandalone", function()
 		end,
 	})
 
-	vim.cmd("CodeDiff")
-end, { desc = "Open CodeDiff as a standalone session" })
+	vim.api.nvim_cmd({ cmd = "CodeDiff", args = opts.fargs }, {})
+end, { nargs = "*", desc = "Open CodeDiff as a standalone session" })

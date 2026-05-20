@@ -41,19 +41,38 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # ===============================
 # Aliases
 # ===============================
+alias g='lazygit -ucd "$HOME/.config/lazygit"'
+alias n='nvim'
+
+gd() {
+  nvim -c "CodeDiffStandalone ${(j: :)${(@q)@}}"
+}
+
+gwt() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: gwt <branch-name>"
+    return 1
+  fi
+
+  local branch="$1"
+
+  git worktree add "$branch" -b "$branch" || return
+  cd "$branch"
+
+  if [[ -n "$TMUX" ]]; then
+    tmux rename-window "$branch"
+  fi
+}
+
+# --- Better CLI Tools ---
+
 alias grep='grep --color=auto'  # Enable color output for grep
 alias cd='z'  # Use zoxide for quick directory navigation
 alias cat='bat' # better 'cat'.
-alias g='lazygit -ucd "$HOME/.config/lazygit"'
-alias n='nvim'
 
 ls() { # better ls command
     command eza "$@" 
 }
-
-# Specific
-alias clear_outputs='for i in {0..10}; do hyprctl output remove HEADLESS-$i; done'
-alias rtouch='sudo modprobe -r hid_multitouch && sudo modprobe hid_multitouch' # fixing issue with touchpad.
 
 # Change cursor shape in Neovim terminal
 if [ -n "$NVIM_LOG_FILE" ]; then

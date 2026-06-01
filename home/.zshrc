@@ -45,7 +45,16 @@ alias g='lazygit -ucd "$HOME/.config/lazygit"'
 alias n='nvim'
 
 gd() {
-  nvim -c "CodeDiffStandalone ${(j: :)${(@q)@}}"
+  local -a args
+  local arg
+
+  for arg in "$@"; do
+    arg=${arg//\\/\\\\}
+    arg=${arg// /\\ }
+    args+=("$arg")
+  done
+
+  nvim -c "CodeDiffStandalone ${(j: :)args}"
 }
 
 gwt() {

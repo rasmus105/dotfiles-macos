@@ -3,7 +3,7 @@
     email = rasmus105@protonmail.com
 
 [alias]
-    difft = -c diff.external=difft diff
+    difft = -c diff.external='difft --color=always --background=dark' -c core.pager='less -R' diff
 
 [init]
     defaultBranch = main
@@ -13,15 +13,15 @@
 
 [core]
     editor = nvim
-    pager = delta
-	ignoreCase = false
+    ; pager = delta
+    ignoreCase = false
 
-[interactive]
-    diffFilter = delta --color-only
-
-[delta]
-    side-by-side = true
-    syntax-theme = gruvbox-dark
+; [interactive]
+;     diffFilter = delta --color-only
+;
+; [delta]
+;     side-by-side = true
+;     syntax-theme = gruvbox-dark
 
 [includeIf "gitdir:~/git/work/"]
     path = ~/.gitconfig-personal # (my company)

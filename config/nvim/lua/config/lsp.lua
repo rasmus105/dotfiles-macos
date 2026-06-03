@@ -47,6 +47,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
         local opts = { buffer = ev.buf, nowait = true }
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+        if client and client.name == "tinymist" then
+            vim.schedule(function()
+                if vim.api.nvim_buf_is_valid(ev.buf) and vim.bo[ev.buf].filetype == "typst" then
+                    vim.bo[ev.buf].formatexpr = ""
+                end
+            end)
+        end
 
         -- Toggle keymaps
         map("n", "<leader>te", function()

@@ -1,6 +1,6 @@
 vim.pack.add({
     -- My own plugin(s)
-    { src = "https://github.com/rasmus105/test-runner.nvim",               version = "v0.2.0" },
+    { src = "https://github.com/rasmus105/test-runner.nvim" },
     -- General Utils
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     -- Git stuff

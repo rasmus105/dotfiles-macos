@@ -26,6 +26,7 @@ antidote load "${ZDOTDIR:-$HOME}/.zsh_plugins.txt"
 # Tool Integrations
 # ==============================================================================
 
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }--bind=ctrl-n:down,ctrl-p:up,ctrl-d:page-down,ctrl-u:page-up,ctrl-f:forward-char,ctrl-b:backward-char"
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 

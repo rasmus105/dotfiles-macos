@@ -13,13 +13,15 @@ require("fzf-lua").setup({
     keymap = {
         builtin = {
             true,
-            ["<C-d>"] = "preview-half-page-down",
-            ["<C-u>"] = "preview-half-page-up"
         },
         fzf = {
             true,
-            ["ctrl-d"] = "preview-half-page-down",
-            ["ctrl-u"] = "preview-half-page-up",
+            ["ctrl-n"] = "down",
+            ["ctrl-p"] = "up",
+            ["ctrl-d"] = "page-down",
+            ["ctrl-u"] = "page-up",
+            ["ctrl-f"] = "forward-char",
+            ["ctrl-b"] = "backward-char",
             ["ctrl-q"] = "select-all+accept"
         }
     }

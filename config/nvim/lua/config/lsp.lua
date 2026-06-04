@@ -103,8 +103,8 @@ require("blink.cmp").setup({
 	keymap = {
 		preset = "default",
 		--
-		["<C-k>"] = { "select_prev", "fallback" },
-		["<C-j>"] = { "select_next", "fallback" },
+		["<C-p>"] = { "select_prev", "fallback" },
+		["<C-n>"] = { "select_next", "fallback" },
 		["<C-l>"] = { "snippet_forward", "fallback" },
 		["<C-h>"] = { "snippet_backward", "fallback" },
 		["<C-g>"] = { "accept", "fallback" },
@@ -134,8 +134,8 @@ require("blink.cmp").setup({
 		enabled = true,
 		completion = { menu = { auto_show = false } },
 		keymap = {
-			["<C-k>"] = { "select_prev", "fallback" },
-			["<C-j>"] = { "select_next", "fallback" },
+			["<C-p>"] = { "select_prev", "fallback" },
+			["<C-n>"] = { "select_next", "fallback" },
 			["<C-g>"] = { "accept", "fallback" },
 			["<C-c>"] = { "cancel", "fallback" },
 			-- unbind keybindings that interfer with other keybindings

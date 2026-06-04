@@ -2,11 +2,12 @@ local map = vim.keymap.set
 
 -- Command shortcuts
 map({ "n", "v", "x" }, "<leader>n", ":norm ", { desc = "enter norm command" })
-map({ "n", "v", "x" }, "<leader>u", ":update<CR>", { desc = "update" })
-map({ "n", "v", "x" }, "<leader>o", ":update<CR>:source %<CR>", { desc = "write and source current file" })
 map({ "n", "v", "x" }, "<leader>q", ":q<CR>", { desc = "quit" })
-map({ "n", "v", "x" }, "<leader>Q", ":wqa<CR>", { desc = "quit all" })
+map({ "n", "v", "x" }, "<leader>x", ":wqa!<CR>", { desc = "force quit all" })
 map({ "n", "v", "x" }, "<leader>m", ":make<CR>", { desc = "make" })
+map({ "n", "v", "x" }, "<leader>l", ":update<CR>:source<CR>", { desc = "Update and source lua file" })
+map({ "n", "v", "x" }, "<leader>,", ":vsplit<CR>:term<CR>i", { desc = "Open terminal" })
+map({ "n", "v", "x" }, "<CR>", ":", { desc = "Open terminal" })
 
 -- Change shortcuts for switching & resizing view
 map("n", "<C-h>", "<C-w>h")

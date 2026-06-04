@@ -1,6 +1,21 @@
 local map = vim.keymap.set
 
 require("fzf-lua").setup({
+    previewers = {
+        builtin = {
+            extensions = {
+                png = { "chafa", "{file}" },
+                jpg = { "chafa", "{file}" },
+                jpeg = { "chafa", "{file}" },
+                webp = { "chafa", "{file}" },
+                gif = { "chafa", "{file}" },
+                bmp = { "chafa", "{file}" },
+                tif = { "chafa", "{file}" },
+                tiff = { "chafa", "{file}" },
+                svg = { "chafa", "{file}" },
+            },
+        },
+    },
     files = {
         previewer = "builtin"
     },

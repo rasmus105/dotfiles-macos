@@ -29,9 +29,13 @@ map("n", "<C-w>K", "<C-w>Kzz")
 map("n", "]q", ":cnext<CR>zz")
 map("n", "[q", ":cprev<CR>zz")
 
--- Always center when moving up/down
+-- Always center when moving up/down or jumping
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-f>", "<C-f>zz")
+map("n", "<C-b>", "<C-b>zz")
+map("n", "<C-o>", "<C-o>zz")
+map("n", "<C-i>", "<C-i>zz")
 
 -- Copying
 map({ "n", "v" }, "<leader>y", '"+y')
@@ -53,13 +57,14 @@ map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 -- Tab
+map("n", "<tab>", "g<tab>")
 map("n", "<leader><tab>n", ":tabnew<CR>")
 map("n", "<leader><tab>q", ":tabclose<CR>")
 map("n", "<leader><tab>l", ":tabnext<CR>")
 map("n", "<leader><tab>h", ":tabprevious<CR>")
 map("n", "<leader><tab>m", "<C-w>T")
 for i = 1, 9 do
-	map("n", "<leader><tab>" .. i, ":tabn " .. i .. "<CR>")
+    map("n", "<leader><tab>" .. i, ":tabn " .. i .. "<CR>")
 end
 
 -- Better up/down (wrapped lines will count as multiple)

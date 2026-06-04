@@ -13,6 +13,7 @@ brew "hyperfine"
 brew "jstkdng/programs/ueberzugpp"
 brew "lazygit"
 brew "neovim", args: ["HEAD"]
+brew "resvg"
 brew "ripgrep"
 brew "rustup"
 brew "scc"

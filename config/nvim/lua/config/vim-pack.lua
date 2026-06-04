@@ -21,6 +21,7 @@ vim.pack.add({
     { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
     { src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
     { src = "https://github.com/Saghen/blink.cmp",                         version = vim.version.range("^1") },
+    { src = "https://github.com/L3MON4D3/LuaSnip" },
     { src = "https://github.com/mrcjkb/rustaceanvim" },
     -- Debugging
     { src = "https://github.com/mfussenegger/nvim-dap" },

@@ -99,6 +99,7 @@ require("blink.cmp").setup({
 	fuzzy = { implementation = "prefer_rust_with_warning" },
 	-- build = 'cargo build --release',
 	signature = { enabled = true },
+	snippets = { preset = "luasnip" },
 	keymap = {
 		preset = "default",
 		--
@@ -128,7 +129,7 @@ require("blink.cmp").setup({
 			},
 		},
 	},
-	sources = { default = { "lsp" } },
+	sources = { default = { "lsp", "snippets" } },
 	cmdline = {
 		enabled = true,
 		completion = { menu = { auto_show = false } },

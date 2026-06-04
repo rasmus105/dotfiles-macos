@@ -7,7 +7,7 @@ map({ "n", "v", "x" }, "<leader>x", ":wqa!<CR>", { desc = "force quit all" })
 map({ "n", "v", "x" }, "<leader>m", ":make<CR>", { desc = "make" })
 map({ "n", "v", "x" }, "<leader>l", ":update<CR>:source<CR>", { desc = "Update and source lua file" })
 map({ "n", "v", "x" }, "<leader>,", ":vsplit<CR>:term<CR>i", { desc = "Open terminal" })
-map({ "n", "v", "x" }, "<CR>", ":", { desc = "Open terminal" })
+map({ "n", "v", "x" }, "<CR>", ":T ", { desc = "Execute terminal command" })
 
 -- Change shortcuts for switching & resizing view
 map("n", "<C-h>", "<C-w>h")

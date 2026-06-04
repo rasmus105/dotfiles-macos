@@ -14,6 +14,7 @@ fi
 # Window Title
 # ==============================================================================
 
+# Set title to directory as that is more useful than the command run.
 __set_title() {
   emulate -L zsh
 

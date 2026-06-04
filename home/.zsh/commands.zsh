@@ -64,3 +64,27 @@ gwt() {
     tmux rename-window "$branch"
   fi
 }
+
+# [g]it[p]ush[a]ll
+gpa() {
+  emulate -L zsh
+  setopt no_monitor
+  local dir pushed=0
+
+  for dir in */; do
+    [[ -d "$dir/.git" ]] || continue
+
+    pushed=1
+    {
+      print "Pushing ${dir%/}"
+      git -C "$dir" push
+    } & 
+  done
+
+  if (( ! pushed )); then
+    print -u2 "No git repositories found in subdirectories."
+    return 1
+  fi
+
+  wait
+}

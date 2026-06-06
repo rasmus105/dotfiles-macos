@@ -19,8 +19,14 @@ setopt HIST_VERIFY
 # Plugins
 # ==============================================================================
 
-source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-antidote load "${ZDOTDIR:-$HOME}/.zsh_plugins.txt"
+zsh_plugins="${ZDOTDIR:-$HOME}/.zsh_plugins"
+
+if [[ ! "${zsh_plugins}.zsh" -nt "${zsh_plugins}.txt" ]]; then
+  source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+  antidote bundle <"${zsh_plugins}.txt" >|"${zsh_plugins}.zsh"
+fi
+
+source "${zsh_plugins}.zsh"
 
 # ==============================================================================
 # Tool Integrations
@@ -34,8 +40,6 @@ eval "$(zoxide init zsh)"
 # Completion
 # ==============================================================================
 
-zstyle :compinstall filename '/home/rasmus105/.zshrc'
-
 typeset -U fpath
 fpath=(
   "$HOME/.local/share/zsh/site-functions"
@@ -43,7 +47,11 @@ fpath=(
 )
 
 autoload -Uz compinit
-compinit
+if [[ -n "${ZDOTDIR:-$HOME}/.zcompdump"(#qNmh-24) ]]; then
+  compinit -C
+else
+  compinit
+fi
 
 # ==============================================================================
 # Keybindings

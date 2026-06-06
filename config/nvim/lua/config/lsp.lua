@@ -41,6 +41,7 @@ vim.keymap.del("n", "grn")
 vim.keymap.del("n", "gra")
 vim.keymap.del("n", "gri")
 vim.keymap.del("n", "grt")
+vim.keymap.del("n", "grx")
 
 -- LSP Keymaps (apply to all LSP servers)
 vim.api.nvim_create_autocmd("LspAttach", {

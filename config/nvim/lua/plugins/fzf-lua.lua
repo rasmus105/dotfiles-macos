@@ -111,7 +111,7 @@ end, { desc = "Grep for word cursor is on" }
 
 map("n", "gr", function()
     require("fzf-lua").lsp_references()
-end, { desc = "LSP References (fzf-lua)" }
+end, { desc = "LSP References (fzf-lua)", nowait = true }
 )
 
 map("n", "gd", function()

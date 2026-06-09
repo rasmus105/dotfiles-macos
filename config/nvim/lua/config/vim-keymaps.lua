@@ -4,7 +4,6 @@ local map = vim.keymap.set
 map({ "n", "v", "x" }, "<leader>n", ":norm ", { desc = "enter norm command" })
 map({ "n", "v", "x" }, "<leader>q", ":q<CR>", { desc = "quit" })
 map({ "n", "v", "x" }, "<leader>x", ":wqa!<CR>", { desc = "force quit all" })
-map({ "n", "v", "x" }, "<leader>m", ":make<CR>", { desc = "make" })
 map({ "n", "v", "x" }, "<leader>l", ":update<CR>:source<CR>", { desc = "Update and source lua file" })
 map({ "n", "v", "x" }, "<leader>,", ":tabnew<CR>:term<CR>i", { desc = "Open terminal" })
 map({ "n", "v", "x" }, "<leader>.", ":edit!<CR>", { desc = "Reload current file" })

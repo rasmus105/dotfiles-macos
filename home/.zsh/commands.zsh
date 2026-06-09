@@ -11,10 +11,12 @@ alias gp='git push'
 alias n='nvim'
 alias grep='grep --color=auto'
 alias cd='z'
-alias cat='bat'
+alias cat='bat -p'
 alias disable_sleep='sudo pmset -a disablesleep 1' # useful when needing to close lid while keeping laptop on.
 alias enable_sleep='sudo pmset -a disablesleep 0'
 alias venv='source .venv/bin/activate'
+alias ..="cd .."
+alias ...="cd ../.."
 
 # ==============================================================================
 # Command Wrappers

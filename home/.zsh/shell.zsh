@@ -16,7 +16,7 @@ setopt SHARE_HISTORY
 setopt HIST_VERIFY
 
 # ==============================================================================
-# Plugins
+# Plugin Cache
 # ==============================================================================
 
 zsh_plugins="${ZDOTDIR:-$HOME}/.zsh_plugins"
@@ -25,8 +25,6 @@ if [[ ! "${zsh_plugins}.zsh" -nt "${zsh_plugins}.txt" ]]; then
   source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
   antidote bundle <"${zsh_plugins}.txt" >|"${zsh_plugins}.zsh"
 fi
-
-source "${zsh_plugins}.zsh"
 
 # ==============================================================================
 # Tool Integrations
@@ -52,6 +50,14 @@ if [[ -n "${ZDOTDIR:-$HOME}/.zcompdump"(#qNmh-24) ]]; then
 else
   compinit
 fi
+
+# ==============================================================================
+# Plugins
+# ==============================================================================
+
+source "${zsh_plugins}.zsh"
+
+zstyle ':fzf-tab:*' fzf-bindings 'ctrl-g:accept'
 
 # ==============================================================================
 # Keybindings

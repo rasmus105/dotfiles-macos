@@ -26,7 +26,7 @@ vim.pack.add({
     -- Debugging
     { src = "https://github.com/mfussenegger/nvim-dap" },
     { src = "https://github.com/igorlfs/nvim-dap-view",                    version = vim.version.range("1") },
-    -- Colorschemes & Visuals
+    -- Visuals
     { src = "https://github.com/nvim-mini/mini.icons" },
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
@@ -34,4 +34,5 @@ vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.cursorword" },
     -- Colorschemes
     { src = "https://github.com/ellisonleao/gruvbox.nvim" },
+    { src = "https://github.com/dchinmay2/alabaster.nvim" },
 })

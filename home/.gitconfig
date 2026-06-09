@@ -6,7 +6,8 @@
     difft = -c diff.external='difft --color=always --background=dark' -c core.pager='less -R' diff
 	whoami = !git config --global user.name && git config --global user.email
     l = log --graph --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %C(white)- %an, %ar%Creset'
-    c = "!f() { git clone --recursive \"$1\" && cd \"$(basename \"$1\" .git)\"; }; f"
+    c = "!f() { git clone --recursive \"$@\"; }; f"
+    s = "status -s"
 
 [init]
     defaultBranch = main

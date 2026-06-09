@@ -8,6 +8,7 @@ map({ "n", "v", "x" }, "<leader>l", ":update<CR>:source<CR>", { desc = "Update a
 map({ "n", "v", "x" }, "<leader>,", ":tabnew<CR>:term<CR>i", { desc = "Open terminal" })
 map({ "n", "v", "x" }, "<leader>.", ":edit!<CR>", { desc = "Reload current file" })
 map({ "n", "v", "x" }, "<CR>", ":T ", { desc = "Execute terminal command" })
+map({ "n", "v", "x" }, "<leader>s", ":wa<CR>", { desc = "Save all files" })
 
 -- Change shortcuts for switching & resizing view
 map("n", "<C-h>", "<C-w>h")
@@ -30,8 +31,12 @@ map("n", "]q", ":cnext<CR>zz")
 map("n", "[q", ":cprev<CR>zz")
 
 -- Always center when moving up/down or jumping
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", function()
+    vim.cmd("normal! " .. vim.keycode("<C-d>") .. "zz")
+end, { desc = "Scroll down and center" })
+map("n", "<C-u>", function()
+    vim.cmd("normal! " .. vim.keycode("<C-u>") .. "zz")
+end, { desc = "Scroll up and center" })
 map("n", "<C-f>", "<C-f>zz")
 map("n", "<C-b>", "<C-b>zz")
 map("n", "<C-o>", "<C-o>zz")

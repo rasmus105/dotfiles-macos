@@ -30,7 +30,7 @@ fi
 # Tool Integrations
 # ==============================================================================
 
-export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }--bind=ctrl-n:down,ctrl-p:up,ctrl-d:page-down,ctrl-u:page-up,ctrl-f:forward-char,ctrl-b:backward-char"
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }--bind=ctrl-n:down,ctrl-p:up,ctrl-d:page-down,ctrl-u:page-up,ctrl-f:forward-char,ctrl-b:backward-char,ctrl-g:accept"
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 

@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 vim.o.title = true
 
-opt.wrap = false -- don't wrap by default
+opt.wrap = false
 opt.number = false -- show line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.cursorline = false -- don't highlight current line

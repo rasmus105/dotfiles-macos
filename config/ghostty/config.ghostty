@@ -24,12 +24,8 @@ keybind = ctrl+enter=unbind
 keybind = ctrl+tab=unbind
 
 # Misc
-keybind = alt+/=start_search
-
 keybind = alt+q=close_surface
-
 keybind = alt+t=toggle_quick_terminal
-
 keybind = alt+o=toggle_tab_overview
 
 # Panes

@@ -15,7 +15,8 @@ keybind = alt+r=reload_config
 
 window-save-state = always
 resize-overlay = never
-macos-titlebar-style = transparent
+macos-titlebar-style = tabs
+
 
 ## Keybinds
 # Unbinding

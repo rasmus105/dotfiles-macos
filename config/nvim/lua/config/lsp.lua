@@ -46,6 +46,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Code actions
 		map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 		map("n", "<leader>cr", vim.lsp.buf.rename, opts)
+		if client and client.name == "zls" then
+			map("n", "<leader>cf", function()
+				vim.lsp.buf.code_action({
+					context = { only = { "source.fixAll" } },
+					apply = true,
+				})
+			end, { buffer = ev.buf, desc = "ZLS fix all" })
+		end
 		map("n", "<leader>f", function()
 			vim.lsp.buf.format({ async = true })
 		end, opts)

@@ -31,7 +31,6 @@ vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.icons" },
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
-    { src = "https://github.com/nanozuki/tabby.nvim" },
     { src = "https://github.com/nvim-mini/mini.cursorword" },
     -- Colorschemes
     { src = "https://github.com/ellisonleao/gruvbox.nvim" },

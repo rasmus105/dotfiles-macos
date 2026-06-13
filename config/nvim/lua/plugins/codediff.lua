@@ -1,6 +1,6 @@
-local map = vim.keymap.set
+local lazy = require("config.lazy")
 
-require("codediff").setup({
+local codediff_config = {
 	highlights = {
 		line_insert = "DiffAdd", -- Line-level insertions
 		line_delete = "DiffDelete", -- Line-level deletions
@@ -26,7 +26,18 @@ require("codediff").setup({
 			refresh = "R", -- Refresh git status
 		},
 	},
-})
+}
+
+local load_codediff = lazy.once("codediff", function()
+	lazy.packadd("codediff.nvim")
+	lazy.del_user_command("VscodeDiff")
+
+	-- Apply config without requiring codediff.ui, which loads the heavy diff UI stack.
+	require("codediff.config").setup(codediff_config)
+	require("codediff.ui.highlights").setup()
+end)
+
+lazy.on_cmd("CodeDiff", load_codediff)
 
 -- When codediff is opened in a standalone session, quit neovim after closing the diff.
 vim.api.nvim_create_user_command("CodeDiffStandalone", function(opts)
@@ -45,5 +56,6 @@ vim.api.nvim_create_user_command("CodeDiffStandalone", function(opts)
 		end,
 	})
 
+	load_codediff()
 	vim.api.nvim_cmd({ cmd = "CodeDiff", args = opts.fargs }, {})
 end, { nargs = "*", desc = "Open CodeDiff as a standalone session" })

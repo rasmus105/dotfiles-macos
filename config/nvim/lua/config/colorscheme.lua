@@ -1,5 +1,10 @@
 ---- Colorscheme configuration ----
 
+local lazy = require("config.lazy")
+
+lazy.packadd("gruvbox.nvim")
+lazy.packadd("alabaster.nvim")
+
 require("gruvbox").setup({
 	terminal_colors = true, -- add neovim terminal colors
 	undercurl = true,

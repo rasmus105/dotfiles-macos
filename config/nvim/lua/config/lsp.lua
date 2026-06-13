@@ -1,32 +1,7 @@
 local map = vim.keymap.set
+local lazy = require("config.lazy")
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-	automatic_enable = {
-		exclude = {
-			-- using neovim plugin to extend rust LSP capabilities, and it will
-			-- handle starting rust analyzer.
-			"rust_analyzer",
-		},
-	},
-})
-require("mason-tool-installer").setup({
-	ensure_installed = {
-		"clangd", -- C/C++ language server
-		"lua_ls", -- Lua language server
-		-- "emmylua_ls", -- Another lua language server
-		"zls", -- Zig language server
-		"tinymist", -- Typst language server
-		"marksman", -- Markdown language server
-		"codelldb", -- Debug adapter for Zig/C/C++/Rust
-		"clang-format", -- C/C++ formatter
-		"stylua", -- Lua formatter
-		"shellcheck", -- Shell linter
-		"shfmt", -- Shell formatter
-	},
-})
-
--- Global auto-format toggle (add this before your LSP config)
+-- Global auto-format toggle
 vim.g.autoformat = true
 
 local function toggle_autoformat()
@@ -35,12 +10,9 @@ local function toggle_autoformat()
 	print("Auto-formatting " .. status)
 end
 
-vim.keymap.del("n", "grr")
-vim.keymap.del("n", "grn")
-vim.keymap.del("n", "gra")
-vim.keymap.del("n", "gri")
-vim.keymap.del("n", "grt")
-vim.keymap.del("n", "grx")
+for _, key in ipairs({ "grr", "grn", "gra", "gri", "grt", "grx" }) do
+	pcall(vim.keymap.del, "n", key)
+end
 
 -- LSP Keymaps (apply to all LSP servers)
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -94,52 +66,56 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- Autocompletion
-require("blink.cmp").setup({
-	fuzzy = { implementation = "prefer_rust_with_warning" },
-	-- build = 'cargo build --release',
-	signature = { enabled = true },
-	snippets = { preset = "luasnip" },
-	keymap = {
-		preset = "default",
-		--
-		["<C-p>"] = { "select_prev", "fallback" },
-		["<C-n>"] = { "select_next", "fallback" },
-		["<C-k>"] = { "select_prev", "fallback" },
-		["<C-j>"] = { "select_next", "fallback" },
-		["<C-l>"] = { "snippet_forward", "fallback" },
-		["<C-h>"] = { "snippet_backward", "fallback" },
-		["<C-g>"] = { "accept", "fallback" },
-		["<C-c>"] = { "cancel", "fallback" },
-		-- unbind keybindings that interfer with other keybindings
-		["<C-e>"] = false,
-		["<C-a>"] = false,
-		["<C-f>"] = false,
-		["<C-b>"] = false,
-		["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
-	},
-	appearance = {
-		use_nvim_cmp_as_default = false,
-		nerd_font_variant = "mono",
-	},
-	completion = {
-		documentation = {
-			auto_show = true,
-			auto_show_delay_ms = 0,
-			window = {
-				border = "none",
+local setup_lsp = lazy.once("lsp", function()
+	lazy.packadd("nvim-lspconfig")
+	lazy.packadd("mason.nvim")
+	lazy.packadd("mason-lspconfig.nvim")
+	lazy.packadd("mason-tool-installer.nvim")
+
+	require("mason").setup()
+	require("mason-lspconfig").setup({
+		automatic_enable = {
+			exclude = {
+				-- using neovim plugin to extend rust LSP capabilities, and it will
+				-- handle starting rust analyzer.
+				"rust_analyzer",
 			},
 		},
-	},
-	sources = { default = { "lsp", "snippets" } },
-	cmdline = {
-		enabled = true,
-		completion = { menu = { auto_show = false } },
+	})
+	require("mason-tool-installer").setup({
+		ensure_installed = {
+			"clangd", -- C/C++ language server
+			"lua_ls", -- Lua language server
+			-- "emmylua_ls", -- Another lua language server
+			"zls", -- Zig language server
+			"tinymist", -- Typst language server
+			"marksman", -- Markdown language server
+			"codelldb", -- Debug adapter for Zig/C/C++/Rust
+			"clang-format", -- C/C++ formatter
+			"stylua", -- Lua formatter
+			"shellcheck", -- Shell linter
+			"shfmt", -- Shell formatter
+		},
+	})
+
+	require("plugins.luasnip").setup()
+	lazy.packadd("blink.cmp")
+
+	-- Autocompletion
+	require("blink.cmp").setup({
+		fuzzy = { implementation = "prefer_rust_with_warning" },
+		-- build = 'cargo build --release',
+		signature = { enabled = true },
+		snippets = { preset = "luasnip" },
 		keymap = {
+			preset = "default",
+			--
 			["<C-p>"] = { "select_prev", "fallback" },
 			["<C-n>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "select_prev", "fallback" },
 			["<C-j>"] = { "select_next", "fallback" },
+			["<C-l>"] = { "snippet_forward", "fallback" },
+			["<C-h>"] = { "snippet_backward", "fallback" },
 			["<C-g>"] = { "accept", "fallback" },
 			["<C-c>"] = { "cancel", "fallback" },
 			-- unbind keybindings that interfer with other keybindings
@@ -147,7 +123,44 @@ require("blink.cmp").setup({
 			["<C-a>"] = false,
 			["<C-f>"] = false,
 			["<C-b>"] = false,
-			["<C-Space>"] = { "show", "fallback" },
+			["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
 		},
-	},
-})
+		appearance = {
+			use_nvim_cmp_as_default = false,
+			nerd_font_variant = "mono",
+		},
+		completion = {
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 0,
+				window = {
+					border = "none",
+				},
+			},
+		},
+		sources = { default = { "lsp", "snippets" } },
+		cmdline = {
+			enabled = true,
+			completion = { menu = { auto_show = false } },
+			keymap = {
+				["<C-p>"] = { "select_prev", "fallback" },
+				["<C-n>"] = { "select_next", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
+				["<C-g>"] = { "accept", "fallback" },
+				["<C-c>"] = { "cancel", "fallback" },
+				-- unbind keybindings that interfer with other keybindings
+				["<C-e>"] = false,
+				["<C-a>"] = false,
+				["<C-f>"] = false,
+				["<C-b>"] = false,
+				["<C-Space>"] = { "show", "fallback" },
+			},
+		},
+	})
+end)
+
+lazy.on_event({ "BufReadPost", "BufNewFile" }, "Lsp", setup_lsp, { once = true, schedule = true })
+lazy.on_event({ "InsertEnter", "CmdlineEnter" }, "LspImmediate", setup_lsp, { once = true })
+
+vim.api.nvim_create_user_command("LspSetup", setup_lsp, { desc = "Load LSP and completion plugins" })

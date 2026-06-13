@@ -35,4 +35,6 @@ vim.pack.add({
     -- Colorschemes
     { src = "https://github.com/ellisonleao/gruvbox.nvim" },
     { src = "https://github.com/dchinmay2/alabaster.nvim" },
+}, {
+	load = function() end,
 })
